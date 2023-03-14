@@ -8,8 +8,6 @@ const Dotenv = require("dotenv-webpack");
 const urlDev = "https://localhost:3000/";
 const urlProd = "https://www.contoso.com/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
 
-const supportEmail = ""; // CHANGE THIS TO YOUR SUPPORT EMAIL ADDRESS
-
 async function getHttpsOptions() {
   const httpsOptions = await devCerts.getHttpsServerOptions();
   return { ca: httpsOptions.ca, key: httpsOptions.key, cert: httpsOptions.cert };
