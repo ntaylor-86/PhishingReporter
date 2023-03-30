@@ -48,3 +48,19 @@ npm start
 ```
 
 In Outlook, view a message and see the newly sideloaded add-in appear in your ribbon.
+
+## Building for production
+
+Open your `webpack.config.js` file and add your production URL.
+
+```js
+const urlProd = "https://www.contoso.com/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+```
+
+After the above file has been updated run the following command
+
+```sh
+npm run build
+```
+
+A new `dist` folder will be created in the root of the project. Upload these files to your production web server.
