@@ -51,13 +51,20 @@ In Outlook, view a message and see the newly sideloaded add-in appear in your ri
 
 ## Building for production
 
-Open your `webpack.config.js` file and add your production URL.
+Open your `webpack.config.js` file and add update your version.
 
 ```js
-const urlProd = "https://www.contoso.com/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+const version = "1.2.0.0"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT VERSION
 ```
 
-After the above file has been updated run the following command
+Also change your production URL to suit.
+
+```js
+const urlProd = "https://contoso.com.au/v" + version + "/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+const urlProdShort = "https://contoso.com.au/v" + version; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+```
+
+After your `webpack.config.js` has been updated run the following command:
 
 ```sh
 npm run build

@@ -5,10 +5,11 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
+const version = "1.2.0.0"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT VERSION
 const urlDev = "https://localhost:3000/";
 const urlDevShort = "https://localhost:3000";
-const urlProd = "https://www.consoso.com/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
-const urlProdShort = "https://www.consoso.com"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+const urlProd = "https://consoco.com.au/v" + version + "/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+const urlProdShort = "https://consoco.com.au/v" + version; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
 
 async function getHttpsOptions() {
   const httpsOptions = await devCerts.getHttpsServerOptions();
@@ -78,7 +79,8 @@ module.exports = async (env, options) => {
                 return content
                   .toString()
                   .replace(new RegExp(urlDev, "g"), urlProd)
-                  .replace(new RegExp(urlDevShort, "g"), urlProdShort);
+                  .replace(new RegExp(urlDevShort, "g"), urlProdShort)
+                  .replace(new RegExp("__VERSION__", "g"), version);
               }
             },
           },
